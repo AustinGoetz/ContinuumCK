@@ -18,15 +18,15 @@ class PostController {
     var posts: [Post] = []
     
     // MARK: - CRUD
-    
     func creatPostWith(image: UIImage, caption: String, completion: @escaping (Post?) -> Void) {
         
         let newPost = Post(caption: caption, photo: image)
-        posts.append(newPost)
+        self.posts.append(newPost)
         
     }
-    func addComment(text: String, post: Post, completion: @escaping (Comment?) -> Void ) {
-        
+    func addComment(text: String, post: Post, completion: @escaping (Comment) -> Void ) {
+        let newComment = Comment(text: text, post: post)
+        post.comments.append(newComment)
     }
     
     
